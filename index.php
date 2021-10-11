@@ -1,4 +1,5 @@
 <?php
+require 'vendor/autoload.php';
 define("CONTROLLERS_HOME", 'controllers/');
 
 /**
