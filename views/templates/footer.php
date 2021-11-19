@@ -38,8 +38,8 @@
     <!-- Custom scripts for all pages-->
     <script src="assets/js/sb-admin-2.min.js"></script>    
     <?php
-    if(isset($_customJs) && is_array($_customJs)){
-        foreach($_customJs as $jsFile){            
+    if(isset($data) && isset($data['js']) && is_array($data['js'])){
+        foreach($data['js'] as $jsFile){            
             echo '<script src="'.$jsFile.'"></script>';    
         }
     }
