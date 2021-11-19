@@ -3,13 +3,8 @@ define('DEBUG', true);
 $data['titulo'] = "Plantilla formulario";
 $data["div_titulo"] = "Formulario";
 
-$_customJs = array("vendor/summernote/summernote-bs4.min.js", "assets/pages/js/formulario.view.js");
-
-//Por comodidad creamos arrays para las variables que se pueden recibir por post y son arrays
-$data['sanitized']['opcions'] = array();
-
 //Comprobamos si se ha enviado el formulario y si es así, lo procesamos
-if(isset($_POST['submit'])){
+if(isset($_POST['boton_enviar'])){
     $data['errors'] = checkForm($_POST);
     $data['sanitized'] = sanitizeInput($_POST);
     if(count($data['errors']) == 0){
@@ -24,7 +19,6 @@ function checkForm($_input) : array{
     /* Validación de un campo username que sólo permite caracteres numéricos y letras. Longitud mínima 3 y máxima 15
      * Para la validación usamos una expresión regular que nos comprueba si se cumple
      */    
-    echo preg_match("/[A-Za-z0-9]+/", $_input['username']);
     if(preg_match("/^[A-Za-z0-9]{3,15}$/", $_input['username']) === 0){
         $_errors['username'] = "Sólo se permiten nombres formados por números y letras de tamaño comprendido entre 3 y 15";
     }
@@ -37,7 +31,7 @@ function checkForm($_input) : array{
     /*
      * Validamos una URL.
      */
-    if(!filter_var($_input['website'], FILTER_VALIDATE_EMAIL)){
+    if(!filter_var($_input['website'], FILTER_VALIDATE_URL)){
         $_errors['website'] = "Debe insertar una URL válida";
     }
     /*

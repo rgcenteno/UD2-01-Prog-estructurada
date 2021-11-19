@@ -130,7 +130,7 @@
                             ?>
                         </div>                        
                         <div class="col-sm-12 mb-3">
-                            <input type="submit" value="Enviar" name="submit" class="btn btn-primary"/>
+                            <input type="submit" value="Enviar" name="boton_enviar" class="btn btn-primary"/>
                         </div>
                     </div>
                 </form>
