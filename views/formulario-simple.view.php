@@ -81,10 +81,10 @@
                             <label for="provincia">Provincia</label>
                             <select class="form-control" id="provincia" name="provincia">
                                 <option value="0">--Seleccione una provincia--</option>
-                                <option value="1" <?php echo $data['sanitized']['provincia'] === "1" ? 'selected' : ""; ?>>A Coruña</option>
-                                <option value="2" <?php echo $data['sanitized']['provincia'] === "2" ? 'selected' : ""; ?>>Lugo</option>
-                                <option value="3" <?php echo $data['sanitized']['provincia'] === "3" ? 'selected' : ""; ?>>Ourense</option>
-                                <option value="4" <?php echo $data['sanitized']['provincia'] === "4" ? 'selected' : ""; ?>>Pontevedra</option>                            
+                                <option value="1" <?php echo isset($data['sanitized']['provincia']) && $data['sanitized']['provincia'] === "1" ? 'selected' : ""; ?>>A Coruña</option>
+                                <option value="2" <?php echo isset($data['sanitized']['provincia']) && $data['sanitized']['provincia'] === "2" ? 'selected' : ""; ?>>Lugo</option>
+                                <option value="3" <?php echo isset($data['sanitized']['provincia']) && $data['sanitized']['provincia'] === "3" ? 'selected' : ""; ?>>Ourense</option>
+                                <option value="4" <?php echo isset($data['sanitized']['provincia']) && $data['sanitized']['provincia'] === "4" ? 'selected' : ""; ?>>Pontevedra</option>                            
                             </select>
                             <?php if (isset($data['errors']['provincia'])) { ?>
                             <p class="text-danger"><small><?php echo $data['errors']['provincia']; ?></small></p>

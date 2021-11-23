@@ -14,7 +14,7 @@ if(isset($_POST['boton_enviar'])){
 }
 
 
-function checkForm($_input) : array{
+function checkForm(array $_input) : array{
     $_errors = array(); //Creamos el array donde almacenaremos los errores
     /* Validación de un campo username que sólo permite caracteres numéricos y letras. Longitud mínima 3 y máxima 15
      * Para la validación usamos una expresión regular que nos comprueba si se cumple
@@ -25,19 +25,19 @@ function checkForm($_input) : array{
     /*
      * Validamos un email. Sólo se permite un email.
      */
-    if(!filter_var($_input['email'], FILTER_VALIDATE_EMAIL)){
+    if(filter_var($_input['email'], FILTER_VALIDATE_EMAIL) === false){
         $_errors['email'] = "Debe insertar un mail válido";
     }
     /*
      * Validamos una URL.
      */
-    if(!filter_var($_input['website'], FILTER_VALIDATE_URL)){
+    if(filter_var($_input['website'], FILTER_VALIDATE_URL) === false){
         $_errors['website'] = "Debe insertar una URL válida";
     }
     /*
      * Validamos un campo numérico entero. Si fuese decimal usaríamos FILTER_VALIDATE_FLOAT
      */
-    if(!filter_var($_input['numero'], FILTER_VALIDATE_INT)){
+    if(filter_var($_input['numero'], FILTER_VALIDATE_INT) === 0){
         $_errors['numero'] = "Inserte un número entero";
     }
     /*
